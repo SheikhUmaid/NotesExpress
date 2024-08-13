@@ -25,7 +25,6 @@ jobs:
         npm ci
         zip -r publish.zip ./* 
       
-    
     - name: Deploy to AWS Lambda
       run: |
           aws lambda update-function-code --function-name a --zip-file fileb://publish.zip --region your-region-replace
