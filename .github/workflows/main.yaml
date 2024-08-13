@@ -18,18 +18,16 @@ jobs:
       with:
         node-version: '16' # Use the node version your project uses
 
-    - name: Zip Lambda function
+    - name: Install dependencies and zip Lambda function
       env:
         CI: true
       run: | 
         npm ci
-        zip -r publish.zip ./* 
-      
+        zip -r publish.zip . -x "*.git*" "*.github*" "publish.zip"
+
     - name: Deploy to AWS Lambda
       run: |
-          aws lambda update-function-code --function-name a --zip-file fileb://publish.zip --region your-region-replace
-        env:
-          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-
-    
+        aws lambda update-function-code --function-name a --zip-file fileb://publish.zip --region your-region
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
