@@ -1,0 +1,36 @@
+name: CI/CD Deploy
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch
+
+jobs:
+  deploy_lambda:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16' # Use the node version your project uses
+
+    - name: Zip Lambda function
+      env:
+        CI: true
+      run: | 
+        npm ci
+        zip -r publish.zip ./* 
+      
+    
+    - name: Deploy to AWS Lambda
+      run: |
+          aws lambda update-function-code --function-name a --zip-file fileb://publish.zip --region your-region-replace
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+
+    
