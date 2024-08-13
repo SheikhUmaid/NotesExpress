@@ -67,10 +67,10 @@ const GetOneNote = asyncHandler(async (req, res) => {
 });
 
 const GetAllNotes = asyncHandler(async (req, res) => {
-    const notes = await Note.find()
-    if(!notes) throw new ApiError(404, "Note Not Found");
+    // const notes = await Note.find()
+    // if(!notes) throw new ApiError(404, "Note Not Found");
     return res.status(200).json(
-        new ApiResponse(200, notes, "OK")
+        new ApiResponse(200, {}, "OK")
     )
 });
 
