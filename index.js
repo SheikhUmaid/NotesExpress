@@ -17,7 +17,7 @@ ConnectDB()
 // export const handler = serverless(app);
 
 
-
+// test promises in js 
 
 // AKIARZ2SLSDFMY5QPXL6ABC
 
