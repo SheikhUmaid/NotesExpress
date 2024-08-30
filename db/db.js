@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 const ConnectDB = async ()=>{
     try{
-        await mongoose.connect("mongodb+srv://sheikhumaid03:8jP5QAQBIaEpspTm@forumexpress.rhvn0.mongodb.net/Notes")
+        await mongoose.connect("mongodb://localhost:27017/Notes")
         console.log('conneted to db successfully');
         
     }catch(e){

@@ -4,7 +4,7 @@ import app from "./app.js";
 
 ConnectDB()
     .then(() => {
-        app.listen(3000,()=>{
+        app.listen(4000,()=>{
             console.log("App is listenign at 4000");
         })
         
