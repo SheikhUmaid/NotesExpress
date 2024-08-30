@@ -6,14 +6,14 @@ const app = express()
 
 app.use(cors({
     origin: '*'
-}))
-app.use(express.json({limit:"16kb"}))
-app.use(urlencoded({extended:true}))
+}));
+app.use(express.json({limit:"16kb"}));
+app.use(urlencoded({extended:true}));
 
 
 app.use("/todo", router);
 
 
-export default app
+export default app;
 
-//77777
+//77
