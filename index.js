@@ -17,10 +17,7 @@ ConnectDB()
 // export const handler = serverless(app);
 
 
-// test promises in js 
-//again test in promises
-//tests in promises
-// AKIARZ2SLSDFMY5QPXL6ABC
-//worked nothing gggggg
 
+// AKIARZ2SLSDFMY5QPXL6ABC
+// no progress
 // CQ9w+Wno3/ItYBU54HsgBeNEvCAY/hyCoctaN/2vabc
